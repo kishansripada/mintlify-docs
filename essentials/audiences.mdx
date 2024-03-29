@@ -1,0 +1,40 @@
+---
+title: 'Audiences'
+description: 'Specific groups of users that are built by a combination of Javascript conditions run against the user object'
+icon: 'users'
+---
+
+## Initialized user
+
+Let's imagine we have a user object that looks like this:
+```javascript
+ hyperuser.initialize({
+     userId: "test-id", // Unique identifier for the user, cannot be queried against
+     apiKey: "<api_key>",
+     user: {
+        displayName: "Kishan Sripada",
+        email: "kishan@umich.edu",
+        languages: ["Javascript", "Python", "Java"],
+        age: 25,
+        income: 100_000,
+        // you can literally put anything you want here
+     },
+ });
+```
+
+## Creating the audience: Students that know Javascript
+
+In the Hyperuser dashboard, you can create an audience with the following filters:
+
+```javascript
+user.languages.includes("Javascript")
+```
+```javascript
+user.email.endsWith(".edu")
+```
+
+<Tip>
+
+Notice that we used pure Javascript to create the audience. Writing conditions where the **user** is the root object. 
+
+</Tip>

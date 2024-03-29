@@ -1,0 +1,95 @@
+---
+title: 'Installation'
+description: 'Learn how to install Hyperuser in your React-based project'
+---
+
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/I69mYSGvaV8"
+  title="YouTube video player"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+  style={{ width: '100%', borderRadius: '0.5rem' }}
+></iframe>
+
+
+
+
+{/* <Info>
+  **Prerequisite** You should have installed Node.js (version 18.10.0 or
+  higher).
+</Info> */}
+
+Step 1. Add a helper file to your project. This file will help you interact with the Hyperuser API.
+
+<CodeGroup>
+
+```typescript Typescript (utils/hyperuser.ts)
+ declare module "react" { interface HTMLAttributes<T> extends DOMAttributes<T> { "data-hyperuser"?: | null; } } export interface EmbedProps { disabled?: boolean; darkMode?: boolean; userId: string; apiKey: string; user: any; } const eventIds = [] as const; type EventId = (typeof eventIds)[number]; const deploymentIds = [] as const; type DeploymentId = (typeof deploymentIds)[number]; type Hyperuser = { initialize(params: EmbedProps): void; startDeployment(deploymentId: DeploymentId): void; /** * Starts a new deployment with the specified deployment ID. * @param deploymentId - The unique identifier of the deployment. */ startDeployment( deploymentId: DeploymentId ): void; trackEvent(eventId: EventId, data?: any): void; }; const errorBoundary = (functionToExcecute: Function) => { if (typeof window !== "undefined" && (window as any).hyperuser) { try { functionToExcecute(); } catch { console.warn("There was an error excuting a function"); } } else { console.warn( "[hyperuser]: the hyperuser script tag was not properly loaded, or is blocked and you attempting to call a function from hyperuser" ); } }; class hyperuser implements Hyperuser { initialize(props: EmbedProps) { return errorBoundary((window as any)?.hyperuser?.initialize(props)); } startDeployment(deploymentId: string) { return errorBoundary((window as any)?.hyperuser?.startDeployment(deploymentId)); } trackEvent(eventId: EventId, data?: any) { return errorBoundary((window as any)?.hyperuser?.trackEvent(eventId, data)); } nextStep(deploymentId: DeploymentId, eventId: EventId) { return errorBoundary((window as any)?.hyperuser?.nextStep(deploymentId, eventId)); } } export default new hyperuser(); 
+```
+
+```javascript Javascript (utils/hyperuser.js)
+let eventIds=[],deploymentIds=[],errorBoundary=r=>{if("undefined"!=typeof window&&window.hyperuser)try{r()}catch{console.warn("There was an error excuting a function")}else console.warn("[hyperuser]: the hyperuser script tag was not properly loaded, or is blocked and you attempting to call a function from hyperuser")};class hyperuser{initialize(r){return errorBoundary(window?.hyperuser?.initialize(r))}startDeployment(r){return errorBoundary(window?.hyperuser?.startDeployment(r))}trackEvent(r,e){return errorBoundary(window?.hyperuser?.trackEvent(r,e))}nextStep(r,e){return errorBoundary(window?.hyperuser?.nextStep(r,e))}}export default new hyperuser;
+```
+
+</CodeGroup>
+
+
+
+### React + Vite
+Step 2. Add the script tag to your `index.html` file:
+
+<CodeGroup>
+
+```html index.html
+<script src="https://static.hyperuser.dev/main.js"></script>
+```
+
+</CodeGroup>
+
+Step 3. Initialize Hyperuser in any client file
+
+```javascript App.jsx
+import hyperuser from "./utils/hyperuser";
+
+useEffect(() => {
+      hyperuser.initialize({
+         userId: "<user_id>",
+         apiKey: "<api_key>",
+         user: {
+            displayName: "<user_display_name>",
+            email: "<user_email>",
+            isProUser: false,
+         },
+    });
+}, []);
+```
+### Next.js
+
+Step 2. Initialize Hyperuser in any client file
+
+```javascript client.jsx
+import Script from "next/script";
+import hyperuser from "../utils/hyperuser";
+   
+   <Script
+     src="https://static.hyperuser.dev/main.js"
+     onLoad={() => {
+      hyperuser.initialize({
+         userId: "<user_id>",
+         apiKey: "<api_key>",
+         user: {
+            displayName: "<user_display_name>",
+            email: "<user_email>",
+            isProUser: false,
+         },
+      });
+     }}
+   />
+   
+```
+
+
+Curious about what changed in a CLI version? [Check out the CLI changelog.](/changelog/command-line)
