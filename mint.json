@@ -25,18 +25,11 @@
     "name": "Dashboard",
     "url": "https://hyperuser.dev/dashboard"
   },
-  "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
-  ],
   "anchors": [],
   "navigation": [
     {
       "group": "Get Started",
       "pages": [
-        "introduction",
         "installation"
       ]
     },
@@ -47,20 +40,6 @@
         "essentials/audiences",
         "essentials/events",
         "essentials/deployments"
-      ]
-    },
-    {
-      "group": "API Documentation",
-      "pages": [
-        "api-reference/introduction"
-      ]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
       ]
     }
   ],

@@ -73,22 +73,21 @@ Step 2. Initialize Hyperuser in any client file
 ```javascript client.jsx
 import Script from "next/script";
 import hyperuser from "../utils/hyperuser";
-   
-   <Script
-     src="https://static.hyperuser.dev/main.js"
-     onLoad={() => {
-      hyperuser.initialize({
-         userId: "<user_id>",
-         apiKey: "<api_key>",
-         user: {
-            displayName: "<user_display_name>",
-            email: "<user_email>",
-            isProUser: false,
-         },
-      });
-     }}
-   />
-   
+
+<Script
+  src="https://static.hyperuser.dev/main.js"
+  onLoad={() => {
+    hyperuser.initialize({
+      userId: "<user_id>",
+      apiKey: "<api_key>",
+      user: {
+        displayName: "<user_display_name>",
+        email: "<user_email>",
+        isProUser: false,
+      },
+    });
+  }}
+/>;
 ```
 
 
