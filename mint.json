@@ -34,12 +34,18 @@
       ]
     },
     {
-      "group": "Essentials",
+      "group": "Concepts ",
       "pages": [
-        "essentials/messages",
-        "essentials/audiences",
-        "essentials/events",
-        "essentials/deployments"
+        "concepts/triggering-a-deployment"
+      ]
+    },
+    {
+      "group": "Building blocks",
+      "pages": [
+        "building-blocks/messages",
+        "building-blocks/audiences",
+        "building-blocks/events",
+        "building-blocks/deployments"
       ]
     }
   ],
