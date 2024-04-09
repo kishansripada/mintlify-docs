@@ -40,6 +40,12 @@
       ]
     },
     {
+      "group": "Building UI",
+      "pages": [
+        "building-ui/overview"
+      ]
+    },
+    {
       "group": "Building blocks",
       "pages": [
         "building-blocks/messages",

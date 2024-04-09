@@ -1,0 +1,97 @@
+---
+title: 'Writing markdown'
+description: 'We use a combination of Markdown and JSX to build UI, giving you beautiful defaults, yet powerful customizability.'
+icon: 'code'
+---
+
+{/* <iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/e-Oi550dHLY"
+  title="YouTube video player"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+  style={{ width: '100%', borderRadius: '0.5rem' }}
+></iframe> */}
+
+
+## Core Markdown Components
+
+We use Github Flavored Markdown. You can find a guide [here](https://guides.github.com/features/mastering-markdown/).
+
+Here are some examples of what you can do with markdown:
+
+```mdx
+# This is a large heading
+```
+
+```mdx
+## This is a medium heading
+```
+
+```mdx
+### This is a small heading
+```
+
+```mdx
+This is a subtitle
+```
+
+## Core JSX Components
+We also have prebuilt JSX components that we built specifically for onboarding.
+
+
+```jsx
+<Button variant="primary | secondary | outline">This is a button</Button>
+```
+
+```jsx
+<Tip>This is a tip to the user</Tip>
+```
+
+```jsx
+<Image src="your-image-src"/>
+```
+
+
+```jsx
+<Tip>This is a tip to the user</Tip>
+```
+
+
+```jsx
+<Steps/> //steps left in the onboarding
+```
+
+```jsx
+<Grid cols="2"></Grid> // 2 column grid
+```
+
+
+## Examples
+
+```jsx
+#Hey there Kishan
+This is a sample modal with some markdown content
+
+<Tip>
+Try holding shift when changing the formation duration on the timeline. 
+</Tip>
+
+<Button>Got it</Button>
+```
+
+
+```jsx
+# Would you like to schedule a Zoom call with our founder?
+Let us know if you're interested in a one-on-one Zoom call with our founder. Your feedback is valuable to us!
+
+<Grid cols="2">
+  <Button>Yes, I'm interested</Button>
+  <Button variant="secondary">No, thanks</Button>
+</Grid>
+```
+
+
+
